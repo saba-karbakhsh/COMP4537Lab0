@@ -59,8 +59,8 @@ class Game {
         if (!validateInput(this.userInput)) return;
 
         // Reset game state and clear the container
-        ResetGame();
-        Button.counter = 0; // Reset button click counter
+        ResetGame(timer);
+        
 
         // Create buttons based on user input
         createButtons(this.userInput);
@@ -69,7 +69,7 @@ class Game {
         disableButtons();
 
         // Start scrambling process after the specified delay
-        await ScrambleButtons(this.userInput);
+        timer = await ScrambleButtons(this.userInput);
     }
 }
 
@@ -135,11 +135,12 @@ function validateInput(userInput) {
 }
 
 // Reset the game state
-function ResetGame() {
+function ResetGame(timer) {
     clearTimeout(timer); // Clear any active timers
     isScrambling = false; // Reset scrambling state
     document.getElementById(CONTAINER_ID).innerHTML = ""; // Clear container
     enableButtons(); // Enable buttons
+    Button.counter = 0; // Reset button counter
 }
 
 // Create buttons with random colors
