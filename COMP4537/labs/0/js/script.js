@@ -1,3 +1,4 @@
+//All the comments are added by ChatGPT
 const BUTTON_ELEMENT = "button"; // Represents the button element tag
 const CONTAINER_ID = "container"; // ID of the container to hold buttons
 const LABEL_ID = "label"; // ID of the label element to display instructions
